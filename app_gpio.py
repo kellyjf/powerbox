@@ -10,6 +10,8 @@ class GpioDialog(Ui_GpioDialog, QDialog):
 		super(QDialog,self).__init__(parent)
 		self.setupUi(self)
 		self.setWindowFlags(Qt.FramelessWindowHint)
+		self.pixmap=QPixmap("trump-buttons.png")
+		self.imageLabel.setPixmap(self.pixmap)
 		self.wThread=[]
 		self.wMonitor=[]
 		self.labels=[self.num1Label,self.num2Label, self.num3Label]
