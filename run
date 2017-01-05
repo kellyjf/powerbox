@@ -1,0 +1,19 @@
+#! /bin/bash
+
+export QWS_DISPLAY=LinuxFb:/dev/fb1
+export QWS_MOUSE_PROTO=Tslib:/dev/input/event0
+export TSLIB_TSDEVICE=/dev/input/event0
+export TSLIB_FBDEVICE=/dev/fb1
+
+if [ ! -e /etc/pointercal ]; then
+	ts_calibrate
+fi
+
+for num in 18 23 24; do
+	if [ ! -d /sys/class/gpio/gpio$num ] ; then
+		echo $num > /sys/class/gpio/export
+	fi
+	echo falling > /sys/class/gpio/gpio$num/edge
+done
+
+python ./app_gpio.py -qws
