@@ -1,3 +1,4 @@
+import os
 import PyQt4.Qt
 from PyQt4.QtCore import *
 from PyQt4.QtGui import *
@@ -38,6 +39,9 @@ class GpioDialog(Ui_GpioDialog, QDialog):
 			print "gpio:           ",gpio
 			self.labels[num].setText(QString(gpio))
 		return setNumLabel
+
+	def reject(self):
+		os.system("/sbin/halt")
 
 if __name__ == "__main__":
 	import sys
