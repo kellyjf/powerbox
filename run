@@ -16,4 +16,5 @@ for num in 18 23 24; do
 	echo falling > /sys/class/gpio/gpio$num/edge
 done
 
+dmesg -n 1
 python ./app_gpio.py -qws

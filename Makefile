@@ -9,4 +9,4 @@ clean:
 	rm -f *.pyc ui_*.py
 
 deploy:
-	scp run *png  *py root@172.20.30.101:
+	scp run S99* *png  *py root@172.20.30.101:
