@@ -80,7 +80,7 @@ class GpioDialog(Ui_GpioDialog, QDialog):
 	def reject(self):
 		os.system("/sbin/halt")
 
-if __name__ == "__main__":
+def main():
 	import sys
 	import signal
 	signal.signal(signal.SIGINT, signal.SIG_DFL)
@@ -90,3 +90,5 @@ if __name__ == "__main__":
 	ui.show()
 	sys.exit(app.exec_())
 
+if __name__ == "__main__":
+	main()
